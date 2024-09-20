@@ -1,0 +1,39 @@
+// ---------------------------------  
+// Rafael Corsi @ insper . edu . br
+//              2018a
+// ---------------------------------
+//
+//  Escreva um código em VM que realize a seguinte
+//  operação:
+//    (14+2)-(123-1)
+//
+//  O resultado deve ser salvo em temp 0
+//  
+//  ****************************************************
+//  ** A ideia é deixar o Z01 resolver, você não deve **
+//  ** simplificar a equação                          **
+//  ****************************************************
+// ---------------------------------
+
+function Main.main 0
+
+
+// esse loop sempre deve existir!
+// caso contrario o computador vai
+// executar lixo de memoria.
+
+push constant 14       --> adiciona constante 14 na pilha
+push constant 2        --> adiciona constante 2 na pilha
+add                    --> soma os dois valores anteriores e aloca no topo da pilha
+pop temp 0             --> copia o todo da pilha para o temp 0
+push constant 123      --> substitui a constante no topo da pilha (caso tenha)
+push constant 1        --> adciona constante 1 na pilha
+sub                    --> subtrai os dois ultimos valores adicionados
+pop temp 1             --> copia a sub no temp 1
+push temp 0            --> adiciona valor do temp 0 na pilha
+push temp 1            --> adiciona valor do temp 1 na pilha
+sub                    --> subtrai os ultimos valores adicionados
+pop temp 0             --> copia o valor e substitui o valor no temp 0 (caso tenha)
+
+label while
+  goto while
